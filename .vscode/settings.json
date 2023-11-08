@@ -1,3 +1,4 @@
 {
-    "livePreview.defaultPreviewPath": "/03-ES6/homework/SpecRunner.html"
+    "livePreview.defaultPreviewPath": "/03-ES6/homework/SpecRunner.html",
+    "liveServer.settings.port": 5501
 }
