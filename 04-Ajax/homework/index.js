@@ -23,6 +23,7 @@ let busqueda = document.getElementById("search");
 let input = document.getElementById("input");
 
 function search() {
+
   image.style.display = "none";
   lista.innerHTML = "";
   var value = input.value;
@@ -30,6 +31,7 @@ function search() {
 
   if (value === "") {
     let noinput = document.createElement("li");
+    noinput.style.listStyle = "none"
     noinput.innerText = "Ingresa un valor en el campo de Busqueda";
     lista.appendChild(noinput);
     return;
@@ -49,6 +51,7 @@ function search() {
 
     if (!swap) {
       let nofind = document.createElement("li");
+      nofind.style.listStyle = "none"
       nofind.innerText = "El Id de tu Amigo no ha sido encontrado";
       lista.appendChild(nofind);
     }
@@ -69,6 +72,7 @@ function borrarAmigo() {
 
   if (valueD === "") {
     let deleteInput = document.createElement("li");
+    deleteInput.style.listStyle = "none"
     deleteInput.innerText = "Ingresa un valor en el campo para Eliminarlo";
     lista.appendChild(deleteInput);
     return;
@@ -96,6 +100,7 @@ function borrarAmigo() {
 
     if (!swapD) {
       let nofinds = document.createElement("li");
+      nofinds.style.listStyle = "none";
       nofinds.innerText =
         "El Id no coincide con ningun Amigo, no es posible borrarlo de la Base de Datos";
       lista.appendChild(nofinds);
