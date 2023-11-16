@@ -16,7 +16,7 @@ export default function Zoo() {
     allAnimals: [],
   });
 
-  console.log(zoo)
+  //console.log(zoo)
 
   const handleInputChange = (event) => {
     setZoo({ ...zoo, zooName: event.target.value });
