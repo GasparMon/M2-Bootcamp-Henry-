@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Caja from '../../assets/caja.png';
 import './form.css';
+import { addProduct } from '../../redux/actions/actions';
+
 
 class Form extends React.Component{
    constructor(props){
@@ -14,13 +16,31 @@ class Form extends React.Component{
       }
    }
 
+  
+
    handleInputChange = (event) => {
       this.setState({ ...this.state, [event.target.name]: event.target.value });
    }
 
+   handleSubmit = () => {
+    const { addProduct } = this.props;
+
+    // Crear un objeto con los datos del estado local y asignar un id usando Date.now()
+    const product = {
+      ...this.state,
+      id: Date.now()
+    };
+
+    // Ejecutar la función addProduct pasando el objeto product como argumento
+    addProduct(product);
+  }
+
+
+ 
+
    render(){
       return (
-         <form className='formBg'>
+         <form className='formBg' onSubmit={this.handleSubmit}>
             <div className='inputBox'>
                <label>Nombre: </label>
                <input
@@ -45,6 +65,15 @@ class Form extends React.Component{
    }
 }
 
-export function mapDispatchToProps() {}
+export function mapDispatchToProps(dispatch) {
+
+   return {
+
+      addProduct: (product) => {
+
+         dispatch(addProduct(product))
+      }
+   }
+}
 
 export default connect(null, mapDispatchToProps)(Form);
